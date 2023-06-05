@@ -46,9 +46,6 @@ def is_user_blacklisted(user_id):
 
 def __load_blacklist_userid_list():
     global BLACKLIST_USERS
-  
-    finally:
-        SESSION.close()
 
 
 __load_blacklist_userid_list()
