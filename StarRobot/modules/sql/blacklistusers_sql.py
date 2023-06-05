@@ -10,7 +10,7 @@ class BlacklistUsers(BASE):
     user_id = Column(String(14), primary_key=True)
     reason = Column(UnicodeText)
 
-      def __init__(self, user_id, reason=None):
+      def __init__(self, user_id, reason=True):
         self.user_id = user_id
         self.reason = reason
         
