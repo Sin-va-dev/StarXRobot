@@ -5,20 +5,6 @@ from sqlalchemy import Column, String, UnicodeText
 from StarRobot.modules.sql import BASE, SESSION
 
 
-class BlacklistUsers(BASE):
-    __tablename__ = "blacklistusers"
-    user_id = Column(String(14), primary_key=True)
-    reason = Column(UnicodeText)
-
-    def __init__(self, user_id, reason=None):
-        self.user_id = user_id
-        self.reason = reason
-
-
-BlacklistUsers.__table__.create(checkfirst=bind)
-
-BLACKLIST_LOCK = threading.RLock()
-BLACKLIST_USERS = set()
 
 
 def blacklist_user(user_id, reason=None):
